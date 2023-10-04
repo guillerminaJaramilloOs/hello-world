@@ -25,7 +25,6 @@ steps:
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
-steps:
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:

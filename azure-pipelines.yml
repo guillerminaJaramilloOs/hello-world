@@ -46,11 +46,3 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-
-
- - task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'   
-
-

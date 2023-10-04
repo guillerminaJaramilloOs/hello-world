@@ -28,6 +28,10 @@ steps:
   inputs:
     command: 'build'
     configuration: $(buildConfiguration)
+
+- script: ls $(Build.ArtifactStagingDirectory)
+  displayName: 'List Artifact Staging Directory'
+
   
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'

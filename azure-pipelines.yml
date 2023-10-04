@@ -47,7 +47,3 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
-
-
-

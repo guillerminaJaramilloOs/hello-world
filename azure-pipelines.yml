@@ -18,8 +18,8 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-
 - task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
   inputs:
     version: '6.x'
     includePreviewVersions: true # Required for preview versions

@@ -55,10 +55,6 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
-
-
-steps:
-
 - task: DotNetCoreCLI@2
   inputs:
     command: publish

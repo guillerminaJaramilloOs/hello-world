@@ -19,7 +19,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - task: UseDotNet@2
-  displayName: 'Install .NET Core SDK'
   inputs:
     version: '6.x'
     includePreviewVersions: true # Required for preview versions
@@ -45,6 +44,8 @@ steps:
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 
+
+
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
@@ -56,4 +57,4 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'EjecucionDePrueba'
+    artifactName: 'myWebsiteName'

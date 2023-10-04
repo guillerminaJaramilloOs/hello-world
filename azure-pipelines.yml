@@ -29,10 +29,6 @@ steps:
     command: 'build'
     configuration: $(buildConfiguration)
 
-- script: ls $(Build.ArtifactStagingDirectory)
-  displayName: 'List Artifact Staging Directory'
-
-  
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
@@ -47,15 +43,4 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
 
-# this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'

@@ -46,4 +46,4 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-
+dotnet publish --output $(Build.ArtifactStagingDirectory)

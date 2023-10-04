@@ -45,8 +45,6 @@ steps:
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 
-steps:
-
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
@@ -58,4 +56,4 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'
+    artifactName: 'EjecucionDePrueba'

@@ -25,12 +25,10 @@ steps:
     performMultiLevelLookup: true
     includePreviewVersions: true # Required for preview versions
 
-steps:
 - task: DotNetCoreCLI@2
-  displayName: Build
+  displayName: 'Install dotnetsay'
   inputs:
-    command: build
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)' # Update this to match your need
-
+    command: custom
+    custom: tool
+    arguments: 'install -g dotnetsay'
 

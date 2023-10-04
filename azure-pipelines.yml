@@ -45,6 +45,7 @@ steps:
     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 
 
+steps:
 
 - task: DotNetCoreCLI@2
   inputs:

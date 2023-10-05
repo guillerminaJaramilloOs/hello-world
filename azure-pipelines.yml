@@ -14,30 +14,8 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: UseDotNet@2
-  displayName: 'Install .NET Core SDK'
-  inputs:
-    version: 6.x
-    performMultiLevelLookup: true
-    includePreviewVersions: true # Required for preview versions
-- task: DotNetCoreCLI@2
-  displayName: 'Install dotnetsay'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install -g dotnetsay'
-# do this after other tasks such as building
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
-# do this after other tasks such as building
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
@@ -45,6 +23,7 @@ steps:
     arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
     publishTestResults: true
     projects: '**/test-library/*.csproj' # update with your test project directory
+
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
